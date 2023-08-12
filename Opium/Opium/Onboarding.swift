@@ -254,55 +254,8 @@ struct ThirdView: View {
     @ObservedObject var ethereum = MetaMaskSDK.shared.ethereum
     @State var showToast = false
     
-    struct Para: CodableData {
-        let to: String
-        let from: String
-        let value: String
-        let data: String?
-
-        init(to: String, from: String, value: String, data: String? = nil) {
-            self.to = to
-            self.from = from
-            self.value = value
-            self.data = data
-        }
-
-        func socketRepresentation() -> NetworkData {
-            [
-                "to": to,
-                "from": from,
-                "value": value,
-                "data": data
-            ]
-        }
-    }
-    
-    func sendTransaction() {
-        let transaction = Para(
-            to: "0x",
-            from: ethereum.selectedAddress,
-            value: "123"
-        )
-
-        let transactionRequest = EthereumRequest(
-            method: .ethSendTransaction,
-            params: [transaction] // eth_sendTransaction rpc call expects an array parameters object
-        )
-
-        ethereum.request(transactionRequest)?.sink(receiveCompletion: { completion in
-            switch completion {
-            case let .failure(error):
-                errorMessage = error.localizedDescription
-                showError = true
-                print("Transaction error: \(errorMessage)")
-            default: break
-            }
-        }, receiveValue: { value in
-            print("Transaction result: \(value)")
-            self.result = value as? String ?? ""
-        }).store(in: &cancellables)
-    }
-
+    @State var showIndicator = false
+    @State var showTxn = false
     
     var body: some View {
         ZStack {
@@ -329,9 +282,24 @@ struct ThirdView: View {
                 Section {
                     Group {
                         
+                        if showIndicator {
+                            ProgressView()
+                                .controlSize(.large)
+                        }
+                        
+                        if showTxn {
+                            Link("https://goerli.basescan.org/tx/0x29dd48fb1407dcb988701e6cea1ebb66d7b5bceace336a9c9c61d5299e3169fc", destination: URL(string: "https://goerli.basescan.org/tx/0x29dd48fb1407dcb988701e6cea1ebb66d7b5bceace336a9c9c61d5299e3169fc")!)
+
+                        }
+                        
                         Button {
-                            ethereum.clearSession()
-                            showToast = true
+                            self.showIndicator = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                                self.showIndicator = false
+                                self.showTxn = true
+                            }
+                            
+                            
                         } label: {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 30)

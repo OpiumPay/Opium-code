@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EAA7A7A92A88239400420EBB /* orangeTick.json in Resources */ = {isa = PBXBuildFile; fileRef = EAA7A7A82A88239400420EBB /* orangeTick.json */; };
 		EAF963AE2A865759007CE234 /* OpiumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF963AD2A865759007CE234 /* OpiumApp.swift */; };
 		EAF963B02A865759007CE234 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF963AF2A865759007CE234 /* ContentView.swift */; };
 		EAF963B22A86575B007CE234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF963B12A86575B007CE234 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EAA7A7A82A88239400420EBB /* orangeTick.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = orangeTick.json; sourceTree = "<group>"; };
 		EAF963AA2A865759007CE234 /* Opium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Opium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF963AD2A865759007CE234 /* OpiumApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpiumApp.swift; sourceTree = "<group>"; };
 		EAF963AF2A865759007CE234 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				EAF963AD2A865759007CE234 /* OpiumApp.swift */,
 				EAF963AF2A865759007CE234 /* ContentView.swift */,
 				EAF963D42A87D8F7007CE234 /* tick.json */,
+				EAA7A7A82A88239400420EBB /* orangeTick.json */,
 				EAF963C62A868A54007CE234 /* onboarding.json */,
 				EAF963BB2A8658A9007CE234 /* HomeView.swift */,
 				EAF963BF2A8684DB007CE234 /* Onboarding.swift */,
@@ -172,6 +175,7 @@
 				EAF963B52A86575B007CE234 /* Preview Assets.xcassets in Resources */,
 				EAF963B22A86575B007CE234 /* Assets.xcassets in Resources */,
 				EAF963D52A87D8F7007CE234 /* tick.json in Resources */,
+				EAA7A7A92A88239400420EBB /* orangeTick.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

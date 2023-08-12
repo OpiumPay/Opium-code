@@ -10,48 +10,83 @@ import SwiftUI
 struct SendPaymentView: View {
     var text = "shop@upi"
     
-    @State var amount = ""
+    @State var amount = "₹"
     
     @FocusState var focus
     
     var body: some View {
-        VStack {
-            Text("You are sending payment to \(text)")
-                .font(.title)
-                .padding(.top, 20)
-            
-            VStack(alignment: .leading) {
-                Text("Enter amount to send in Rupees")
-                    .padding(.top, 20)
-                TextField("100", text: $amount)
-                    .font(.system(size: 24))
-                    .keyboardType(.numberPad)
-                    .focused($focus)
-//                    .padding()
-                    
-                }
-            .padding(.leading, 35)
-            
-            NavigationLink(destination: SendTxnView()) {
+        ZStack {
+            Color(.orange).opacity(0.05)
+                .ignoresSafeArea()
+            VStack {
+                
+                
                 ZStack {
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.blue)
+                    Circle()
+                        .foregroundColor(.orange.opacity(0.3))
+                        .frame(width: 200)
                     
-                    Text("Send")
-                        .foregroundColor(.white)
+                    Image("person")
+                        .resizable()
+                        .frame(width: 100, height: 120)
+                        
                 }
-                .frame(width: 150, height: 50)
-                .padding()
+                .padding(.top, 50)
+                
+                
+                Text("shop@upi")
+                    .fontWeight(.bold)
+                    .font(.system(size: 20))
+                    .padding(.bottom, 130)
+                                
+                
+                ZStack {
+                    Color(.white)
+                        .ignoresSafeArea(.all)
+                    
+                    VStack {
+                        Spacer()
+                        VStack(alignment: .center) {
+                            Text("Enter amount")
+                                .fontWeight(.medium)
+                                .padding(.top, 20)
+                            TextField("₹100", text: $amount)
+                                .font(.system(size: 64))
+                                .keyboardType(.numberPad)
+                                .focused($focus)
+                                .multilineTextAlignment(.center)
+            //                    .padding()
+                                
+                            }
+                        
+                        Spacer()
+                        
+                        NavigationLink(destination: SendTxnView()) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 20)
+                                    .foregroundColor(Color("lightOrange"))
+                                
+                                Text("Send")
+                                    .fontWeight(.medium)
+                                    .foregroundColor(.white)
+                            }
+                            .frame(width: 130, height: 60)
+                            .padding()
+                            
+                        }
+                    }
+                }
+                
+                
                 
             }
-
-            
-            
-            Spacer()
         }
+        
         .onAppear {
             focus = true
         }
+        .navigationTitle("Send UPI")
+        .navigationBarBackButtonHidden(false)
     }
 }
 

@@ -140,45 +140,45 @@ struct HomeView: View {
                     
                     HStack {
                         ZStack {
-                            RoundedRectangle(cornerRadius: 40)
+                            RoundedRectangle(cornerRadius: 30)
                             VStack {
                                 Image(systemName: "arrow.up.right")
                                     .foregroundColor(.black)
-                                    .fontWeight(.bold)
+                                    .fontWeight(.semibold)
                                 Text("Send")
                                     .foregroundColor(.black)
-                                    .fontWeight(.semibold)
+                                    .fontWeight(.medium)
                                     .padding(.top, 5)
                             }
                         }
                         ZStack {
-                            RoundedRectangle(cornerRadius: 40)
+                            RoundedRectangle(cornerRadius: 30)
                             VStack {
                                 Image(systemName: "arrow.down.left")
                                     .foregroundColor(.black)
-                                    .fontWeight(.bold)
+                                    .fontWeight(.semibold)
                                 Text("Withdraw")
                                     .foregroundColor(.black)
-                                    .fontWeight(.semibold)
+                                    .fontWeight(.medium)
                                     .padding(.top, 5)
                             }
                         }
                         
                         ZStack {
-                            RoundedRectangle(cornerRadius: 40)
+                            RoundedRectangle(cornerRadius: 30)
                             VStack {
                                 Image(systemName: "creditcard.fill")
                                     .foregroundColor(.black)
-                                    .fontWeight(.bold)
+                                    .fontWeight(.semibold)
                                 Text("Topup")
                                     .foregroundColor(.black)
-                                    .fontWeight(.semibold)
+                                    .fontWeight(.medium)
                                     .padding(.top, 5)
                             }
                         }
                     }
                     .foregroundColor(.gray.opacity(0.15))
-                    .frame(height: 100)
+                    .frame(height: 80)
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 40)
