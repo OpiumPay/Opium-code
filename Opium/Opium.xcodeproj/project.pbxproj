@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EAF963AE2A865759007CE234 /* OpiumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF963AD2A865759007CE234 /* OpiumApp.swift */; };
+		EAF963B02A865759007CE234 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF963AF2A865759007CE234 /* ContentView.swift */; };
+		EAF963B22A86575B007CE234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF963B12A86575B007CE234 /* Assets.xcassets */; };
+		EAF963B52A86575B007CE234 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF963B42A86575B007CE234 /* Preview Assets.xcassets */; };
+		EAF963BC2A8658A9007CE234 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF963BB2A8658A9007CE234 /* HomeView.swift */; };
+		EAF963BE2A8658C2007CE234 /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF963BD2A8658C2007CE234 /* PayView.swift */; };
+		EAF963C02A8684DB007CE234 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF963BF2A8684DB007CE234 /* Onboarding.swift */; };
+		EAF963C32A868A34007CE234 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = EAF963C22A868A34007CE234 /* Lottie */; };
+		EAF963C52A868A43007CE234 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF963C42A868A43007CE234 /* LottieView.swift */; };
+		EAF963C72A868A54007CE234 /* onboarding.json in Resources */ = {isa = PBXBuildFile; fileRef = EAF963C62A868A54007CE234 /* onboarding.json */; };
+		EAF963CA2A8692A8007CE234 /* metamask-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = EAF963C92A8692A8007CE234 /* metamask-ios-sdk */; };
+		EAF963CD2A87B09F007CE234 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = EAF963CC2A87B09F007CE234 /* CodeScanner */; };
+		EAF963CF2A87B276007CE234 /* SendPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF963CE2A87B276007CE234 /* SendPaymentView.swift */; };
+		EAF963D12A87BD3D007CE234 /* SendTxnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF963D02A87BD3D007CE234 /* SendTxnView.swift */; };
+		EAF963D32A87CFB4007CE234 /* SuccessfulTxn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF963D22A87CFB4007CE234 /* SuccessfulTxn.swift */; };
+		EAF963D52A87D8F7007CE234 /* tick.json in Resources */ = {isa = PBXBuildFile; fileRef = EAF963D42A87D8F7007CE234 /* tick.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EAF963AA2A865759007CE234 /* Opium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Opium.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAF963AD2A865759007CE234 /* OpiumApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpiumApp.swift; sourceTree = "<group>"; };
+		EAF963AF2A865759007CE234 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EAF963B12A86575B007CE234 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EAF963B42A86575B007CE234 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EAF963BB2A8658A9007CE234 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		EAF963BD2A8658C2007CE234 /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
+		EAF963BF2A8684DB007CE234 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		EAF963C42A868A43007CE234 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		EAF963C62A868A54007CE234 /* onboarding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding.json; sourceTree = "<group>"; };
+		EAF963CE2A87B276007CE234 /* SendPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPaymentView.swift; sourceTree = "<group>"; };
+		EAF963D02A87BD3D007CE234 /* SendTxnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTxnView.swift; sourceTree = "<group>"; };
+		EAF963D22A87CFB4007CE234 /* SuccessfulTxn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulTxn.swift; sourceTree = "<group>"; };
+		EAF963D42A87D8F7007CE234 /* tick.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tick.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EAF963A72A865759007CE234 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAF963CA2A8692A8007CE234 /* metamask-ios-sdk in Frameworks */,
+				EAF963C32A868A34007CE234 /* Lottie in Frameworks */,
+				EAF963CD2A87B09F007CE234 /* CodeScanner in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EAF963A12A865759007CE234 = {
+			isa = PBXGroup;
+			children = (
+				EAF963AC2A865759007CE234 /* Opium */,
+				EAF963AB2A865759007CE234 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EAF963AB2A865759007CE234 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EAF963AA2A865759007CE234 /* Opium.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EAF963AC2A865759007CE234 /* Opium */ = {
+			isa = PBXGroup;
+			children = (
+				EAF963AD2A865759007CE234 /* OpiumApp.swift */,
+				EAF963AF2A865759007CE234 /* ContentView.swift */,
+				EAF963D42A87D8F7007CE234 /* tick.json */,
+				EAF963C62A868A54007CE234 /* onboarding.json */,
+				EAF963BB2A8658A9007CE234 /* HomeView.swift */,
+				EAF963BF2A8684DB007CE234 /* Onboarding.swift */,
+				EAF963C42A868A43007CE234 /* LottieView.swift */,
+				EAF963BD2A8658C2007CE234 /* PayView.swift */,
+				EAF963D02A87BD3D007CE234 /* SendTxnView.swift */,
+				EAF963D22A87CFB4007CE234 /* SuccessfulTxn.swift */,
+				EAF963CE2A87B276007CE234 /* SendPaymentView.swift */,
+				EAF963B12A86575B007CE234 /* Assets.xcassets */,
+				EAF963B32A86575B007CE234 /* Preview Content */,
+			);
+			path = Opium;
+			sourceTree = "<group>";
+		};
+		EAF963B32A86575B007CE234 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EAF963B42A86575B007CE234 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EAF963A92A865759007CE234 /* Opium */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAF963B82A86575B007CE234 /* Build configuration list for PBXNativeTarget "Opium" */;
+			buildPhases = (
+				EAF963A62A865759007CE234 /* Sources */,
+				EAF963A72A865759007CE234 /* Frameworks */,
+				EAF963A82A865759007CE234 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Opium;
+			packageProductDependencies = (
+				EAF963C22A868A34007CE234 /* Lottie */,
+				EAF963C92A8692A8007CE234 /* metamask-ios-sdk */,
+				EAF963CC2A87B09F007CE234 /* CodeScanner */,
+			);
+			productName = Opium;
+			productReference = EAF963AA2A865759007CE234 /* Opium.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EAF963A22A865759007CE234 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					EAF963A92A865759007CE234 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = EAF963A52A865759007CE234 /* Build configuration list for PBXProject "Opium" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EAF963A12A865759007CE234;
+			packageReferences = (
+				EAF963C12A868A34007CE234 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				EAF963C82A8692A8007CE234 /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */,
+				EAF963CB2A87B09F007CE234 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
+			productRefGroup = EAF963AB2A865759007CE234 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EAF963A92A865759007CE234 /* Opium */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EAF963A82A865759007CE234 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAF963C72A868A54007CE234 /* onboarding.json in Resources */,
+				EAF963B52A86575B007CE234 /* Preview Assets.xcassets in Resources */,
+				EAF963B22A86575B007CE234 /* Assets.xcassets in Resources */,
+				EAF963D52A87D8F7007CE234 /* tick.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EAF963A62A865759007CE234 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAF963BC2A8658A9007CE234 /* HomeView.swift in Sources */,
+				EAF963D32A87CFB4007CE234 /* SuccessfulTxn.swift in Sources */,
+				EAF963BE2A8658C2007CE234 /* PayView.swift in Sources */,
+				EAF963C02A8684DB007CE234 /* Onboarding.swift in Sources */,
+				EAF963D12A87BD3D007CE234 /* SendTxnView.swift in Sources */,
+				EAF963B02A865759007CE234 /* ContentView.swift in Sources */,
+				EAF963CF2A87B276007CE234 /* SendPaymentView.swift in Sources */,
+				EAF963AE2A865759007CE234 /* OpiumApp.swift in Sources */,
+				EAF963C52A868A43007CE234 /* LottieView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EAF963B62A86575B007CE234 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EAF963B72A86575B007CE234 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EAF963B92A86575B007CE234 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Opium/Preview Content\"";
+				DEVELOPMENT_TEAM = J3LH4H9AA4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "For QR";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beauth.opium.Opium;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		EAF963BA2A86575B007CE234 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Opium/Preview Content\"";
+				DEVELOPMENT_TEAM = J3LH4H9AA4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "For QR";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beauth.opium.Opium;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EAF963A52A865759007CE234 /* Build configuration list for PBXProject "Opium" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAF963B62A86575B007CE234 /* Debug */,
+				EAF963B72A86575B007CE234 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAF963B82A86575B007CE234 /* Build configuration list for PBXNativeTarget "Opium" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAF963B92A86575B007CE234 /* Debug */,
+				EAF963BA2A86575B007CE234 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EAF963C12A868A34007CE234 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		EAF963C82A8692A8007CE234 /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MetaMask/metamask-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
+		EAF963CB2A87B09F007CE234 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EAF963C22A868A34007CE234 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAF963C12A868A34007CE234 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		EAF963C92A8692A8007CE234 /* metamask-ios-sdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAF963C82A8692A8007CE234 /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */;
+			productName = "metamask-ios-sdk";
+		};
+		EAF963CC2A87B09F007CE234 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAF963CB2A87B09F007CE234 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = EAF963A22A865759007CE234 /* Project object */;
+}
