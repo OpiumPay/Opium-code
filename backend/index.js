@@ -6,6 +6,7 @@ const app = express();
 // Define routes
 app.use("/razorpayx", require("./routes/razorpayx"));
 app.use("/gnosis", require("./routes/gnosis"));
+app.use("/worldcoin", require("./routes/worldcoin"));
 
 // ...
 
