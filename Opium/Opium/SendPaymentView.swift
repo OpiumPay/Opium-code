@@ -53,7 +53,7 @@ struct SendPaymentView: View {
                             TextField("₹100", text: $amount)
                                 .font(.system(size: 64))
                                 .keyboardType(.numberPad)
-                                .focused($focus)
+//                                .focused($focus)
                                 .multilineTextAlignment(.center)
             //                    .padding()
                                 
@@ -94,4 +94,13 @@ struct SendPaymentView_Previews: PreviewProvider {
     static var previews: some View {
         SendPaymentView()
     }
+}
+
+
+extension UIView {
+
+ override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+
+  }
 }

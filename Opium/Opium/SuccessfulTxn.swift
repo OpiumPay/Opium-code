@@ -67,7 +67,7 @@ struct SuccessfulTxn: View {
                                         Text("₹50.00")
                                             .font(.largeTitle)
                                             .fontWeight(.medium)
-                                            .padding(.top, 10)
+                                            .padding(.top, 5)
                                         
                                         Text("(0.60 USDC)")
                                             .font(.footnote)
@@ -81,7 +81,7 @@ struct SuccessfulTxn: View {
                                                 .padding(.leading, geo.size.width * 0.09)
                                             Spacer()
                                         }
-                                        .padding(.top, geo.size.height * 0.06)
+                                        .padding(.top, geo.size.height * 0.03)
                                     }
                                     
                             
@@ -138,7 +138,7 @@ struct SuccessfulTxn: View {
                                     Text("Available Credit: ₹4400")
                                         .fontWeight(.medium)
                                         .font(.footnote)
-                                        .padding(.top)
+                                        .padding(.top, 5)
                                     
                                     
                                     

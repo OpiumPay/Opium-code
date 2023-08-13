@@ -45,15 +45,24 @@ struct SendTxnView: View {
             // Delay of 7.5 seconds (1 second = 1_000_000_000 nanoseconds)
             try? await Task.sleep(nanoseconds: 7_500_000_000)
             hasTimeElapsed = true
+        
+            print("Delay text done")
         }
     
     private func delayTexts() async {
             // Delay of 7.5 seconds (1 second = 1_000_000_000 nanoseconds)
             try? await Task.sleep(nanoseconds: 11_500_000_000)
             hasTimeElapsed2 = true
+            
+        print("Delay texts done")
+
+        }
+    
+    private func delayScan() async {
         
-//            try? await Task.sleep(nanoseconds: 13_500_000_000)
-//            scannedCode = "something"
+            try? await Task.sleep(nanoseconds: 15_500_000_000)
+            scannedCode = "something"
+            print("Delay Something done")
 
         }
     
@@ -70,6 +79,7 @@ struct SendTxnView: View {
             case let .failure(error):
                 errorMessage = error.localizedDescription
                 showError = true
+                self.result = "error"
                 print("Error: \(errorMessage)")
             default: break
             }
@@ -104,16 +114,31 @@ struct SendTxnView: View {
                     .controlSize(.large)
                 
                 
-//                if let code = scannedCode {
-//                    NavigationLink("Next page", destination: SuccessfulTxn(), isActive: .constant(true)).hidden()
-//                }
+                if let code = scannedCode {
+                    NavigationLink("Next page", destination: SuccessfulTxn(), isActive: .constant(true)).hidden()
+                }
                 
                 if (hasTimeElapsed2) {
                     Text("Transaction Sent")
                 } else {
                     Text(hasTimeElapsed ? "Message signed succesfully..." : "Sending UPI Transaction...")
-                        .task(delayText)
-                        .task(delayTexts)
+                        .task {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 7.5) {
+                                        hasTimeElapsed = true
+                                    }
+                        }
+                        .task {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 11.5) {
+                                        hasTimeElapsed2 = true
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 15.5) {
+                                            scannedCode = "something"
+                                        }
+                                    }
+                        }
+                        .task {
+                            
+                        }
                         .padding()
                 }
                 
@@ -124,7 +149,7 @@ struct SendTxnView: View {
             
             if (result == "") {
                 HStack {
-                    NavigationLink(destination: SendTxnView()) {
+                    NavigationLink(destination: SuccessfulTxn()) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 20)
                                 .foregroundColor(.gray)

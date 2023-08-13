@@ -288,7 +288,7 @@ struct ThirdView: View {
                         }
                         
                         if showTxn {
-                            Link("https://goerli.basescan.org/tx/0x29dd48fb1407dcb988701e6cea1ebb66d7b5bceace336a9c9c61d5299e3169fc", destination: URL(string: "https://goerli.basescan.org/tx/0x29dd48fb1407dcb988701e6cea1ebb66d7b5bceace336a9c9c61d5299e3169fc")!)
+                            Link("https://goerli.basescan.org/tx/0x9fd71811c55854f1be12f8456f65428c64a007b7899f798a5b6664bde8948fde", destination: URL(string: "https://goerli.basescan.org/tx/0x9fd71811c55854f1be12f8456f65428c64a007b7899f798a5b6664bde8948fde")!)
 
                         }
                         
