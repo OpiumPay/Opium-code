@@ -3,6 +3,10 @@ pragma solidity ^0.8.0;
 
 import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
+import "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";
+import "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol";
+import "@chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol";
+
 interface IGnosisSafe {
     function execTransaction(
         address to,
@@ -23,17 +27,28 @@ interface IAaveLendingPool {
     function borrow(address asset, uint256 amount, uint256 interestRateMode, uint16 referralCode) external;
 }
 
-contract GnosisAaveInteractor {
+contract GnosisAaveInteractor is VRFConsumerBaseV2 {
     address private owner;
-    address private usdcToken;  // Address of the USDC token contract
+    address private usdcToken; // Address of the USDC token contract
     IAaveLendingPool private aaveLendingPool;
     IGnosisSafe private gnosisSafe;
+
+    LinkTokenInterface internal LINK;
+    VRFCoordinatorV2Interface internal vrfCoordinator;
+
+    // Chainlink VRF variables
+    bytes32 private keyHash;
+    uint256 private fee;
+
+    // Mapping to store latest INR price
+    mapping(bytes32 => uint256) public requestIdToInrPrice;
 
     mapping(address => address) public userToGnosisSafe; // Maps users to their Gnosis Safe addresses
 
     event Liquidation(address indexed user, uint256 amount);
     event Lending(address indexed user, uint256 amount);
     event Borrowing(address indexed user, uint256 amount);
+    event InrPriceFetched(bytes32 indexed requestId, uint256 inrPrice);
 
     modifier onlyOwner() {
         require(msg.sender == owner, "Only the owner can call this function");
@@ -41,15 +56,33 @@ contract GnosisAaveInteractor {
     }
 
     modifier onlyUser() {
-        require(userToGnosisSafe[msg.sender] != address(0), "User has not been added");
+        require(
+            userToGnosisSafe[msg.sender] != address(0),
+            "User has not been added"
+        );
         _;
     }
 
-    constructor(address _usdcToken, address _aaveLendingPool, address _gnosisSafe) {
+    constructor(
+        address _usdcToken,
+        address _aaveLendingPool,
+        address _gnosisSafe,
+        address _vrfCoordinator,
+        address _linkToken,
+        bytes32 _keyHash,
+        uint256 _fee
+    ) VRFConsumerBaseV2(_vrfCoordinator) {
         owner = msg.sender;
         usdcToken = _usdcToken;
         aaveLendingPool = IAaveLendingPool(_aaveLendingPool);
         gnosisSafe = IGnosisSafe(_gnosisSafe);
+
+        vrfCoordinator = VRFCoordinatorV2Interface(_vrfCoordinator); // Initialize the VRFCoordinatorV2Interface
+
+        LINK = LinkTokenInterface(_linkToken);
+
+        keyHash = _keyHash;
+        fee = _fee;
     }
 
     function addUser(address user, address safeAddress) external onlyOwner {
@@ -63,21 +96,28 @@ contract GnosisAaveInteractor {
         uint256 usdcBalance = IERC20(usdcToken).balanceOf(address(this));
 
         // Prepare data for Gnosis Safe transaction to transfer USDC
-        bytes memory data = abi.encodeWithSignature("transfer(address,uint256)", owner, usdcBalance);
+        bytes memory data = abi.encodeWithSignature(
+            "transfer(address,uint256)",
+            owner,
+            usdcBalance
+        );
 
         // Execute Gnosis Safe transaction
-        require(IGnosisSafe(userToGnosisSafe[msg.sender]).execTransaction(
-            usdcToken,
-            0,
-            data,
-            0, // Operation: Call
-            0, // SafeTxGas
-            0, // BaseGas
-            0, // GasPrice
-            address(0), // GasToken
-            address(0), // RefundReceiver
-            false // ReimburseGasFee
-        ), "Failed to execute Gnosis Safe transaction");
+        require(
+            IGnosisSafe(userToGnosisSafe[msg.sender]).execTransaction(
+                usdcToken,
+                0,
+                data,
+                0, // Operation: Call
+                0, // SafeTxGas
+                0, // BaseGas
+                0, // GasPrice
+                address(0), // GasToken
+                address(0), // RefundReceiver
+                false // ReimburseGasFee
+            ),
+            "Failed to execute Gnosis Safe transaction"
+        );
 
         emit Liquidation(msg.sender, usdcBalance);
     }
@@ -96,24 +136,54 @@ contract GnosisAaveInteractor {
         aaveLendingPool.borrow(usdcToken, amount, 1, 0);
 
         // Prepare data for Gnosis Safe transaction to transfer borrowed USDC to user
-        bytes memory data = abi.encodeWithSignature("transfer(address,uint256)", msg.sender, amount);
+        bytes memory data = abi.encodeWithSignature(
+            "transfer(address,uint256)",
+            msg.sender,
+            amount
+        );
 
         // Execute Gnosis Safe transaction to transfer borrowed USDC
-        require(IGnosisSafe(userToGnosisSafe[msg.sender]).execTransaction(
-            usdcToken,
-            0,
-            data,
-            0, // Operation: Call
-            0, // SafeTxGas
-            0, // BaseGas
-            0, // GasPrice
-            address(0), // GasToken
-            address(0), // RefundReceiver
-            false // ReimburseGasFee
-        ), "Failed to execute Gnosis Safe transaction");
+        require(
+            IGnosisSafe(userToGnosisSafe[msg.sender]).execTransaction(
+                usdcToken,
+                0,
+                data,
+                0,
+                0,
+                0,
+                0,
+                address(0), // GasToken
+                address(0), // RefundReceiver
+                false // ReimburseGasFee
+            ),
+            "Failed to execute Gnosis Safe transaction"
+        );
 
         emit Borrowing(msg.sender, amount);
     }
 
-    // Additional functions and events can be added as needed
+    function requestInrPrice(bytes32 requestId) external {
+        require(LINK.balanceOf(address(this)) >= fee, "Not enough LINK tokens");
+
+        requestIdToInrPrice[requestId] = 0; // Initialize the price as 0
+    }
+
+    // Callback function called by Chainlink VRF
+    function fulfillRandomness(bytes32 requestId, uint256 randomness) internal {
+        uint256 inrPrice = fetchInrPrice(randomness);
+
+        requestIdToInrPrice[requestId] = inrPrice;
+
+        emit InrPriceFetched(requestId, inrPrice);
+    }
+
+    // Function to fetch INR price based on randomness
+    function fetchInrPrice(uint256 randomness) internal pure returns (uint256) {
+        return (randomness % 100) + 5000; // Return a price between 5000 and 5099
+    }
+
+    function fulfillRandomWords(
+        uint256 requestId,
+        uint256[] memory randomWords
+    ) internal virtual override {}
 }
